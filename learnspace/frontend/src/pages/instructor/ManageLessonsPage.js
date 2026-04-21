@@ -5,6 +5,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import api, { courseAPI, resolveEntityId } from '../../services/api';
 import { Loader, Badge, Modal } from '../../components/common/UI';
+import LiveClassesSection from '../../components/common/LiveClassesSection';
 import { toast } from 'react-toastify';
 
 const LESSON_TYPES = [
@@ -383,6 +384,11 @@ const ManageLessonsPage = () => {
           })}
         </div>
       )}
+
+      {/* Live Classes management */}
+      <div className="mt-6">
+        <LiveClassesSection courseId={courseId} isInstructor={true} />
+      </div>
 
       <Modal
         isOpen={modalOpen}
