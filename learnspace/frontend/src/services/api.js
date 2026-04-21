@@ -128,6 +128,30 @@ export const chatbotAPI = {
   send: (message) => api.post('/chatbot/message', { message })
 };
 
+// Review API helpers
+export const reviewAPI = {
+  list:   (courseId) => api.get(`/reviews/course/${assertId(courseId, 'course id')}`),
+  mine:   (courseId) => api.get(`/reviews/my/${assertId(courseId, 'course id')}`),
+  save:   (courseId, data) => api.post(`/reviews/${assertId(courseId, 'course id')}`, data),
+  remove: (courseId) => api.delete(`/reviews/${assertId(courseId, 'course id')}`)
+};
+
+// Messaging API helpers
+export const messageAPI = {
+  conversations: () => api.get('/messages/conversations'),
+  thread:        (userId) => api.get(`/messages/thread/${assertId(userId, 'user id')}`),
+  send:          (data) => api.post('/messages', data),
+  unreadCount:   () => api.get('/messages/unread-count')
+};
+
+// Live Class API helpers
+export const liveClassAPI = {
+  forCourse: (courseId) => api.get(`/live-classes/course/${assertId(courseId, 'course id')}`),
+  create:    (data) => api.post('/live-classes', data),
+  update:    (id, data) => api.patch(`/live-classes/${assertId(id, 'class id')}`, data),
+  remove:    (id) => api.delete(`/live-classes/${assertId(id, 'class id')}`)
+};
+
 // Progress API helpers
 export const progressAPI = {
   markComplete: (lessonId, data) => api.post(`/progress/lesson/${assertId(lessonId, 'lesson id')}`, data),
