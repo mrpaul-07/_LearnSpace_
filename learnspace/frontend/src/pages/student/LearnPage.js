@@ -4,6 +4,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import api from '../../services/api';
+import LiveClassesSection from '../../components/common/LiveClassesSection';
 import { toast } from 'react-toastify';
 
 // Helper: MongoDB _id ba regular id
@@ -450,6 +451,11 @@ const LearnPage = () => {
                 </div>
               </div>
             )}
+
+            {/* Live Classes */}
+            <div className="mt-6">
+              <LiveClassesSection courseId={courseId} isInstructor={false} />
+            </div>
           </div>
         </div>
 
