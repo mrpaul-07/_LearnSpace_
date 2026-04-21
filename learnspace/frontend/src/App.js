@@ -17,6 +17,7 @@ import RegisterPage from './pages/RegisterPage';
 import ForgotPasswordPage from './pages/ForgotPasswordPage';
 import ResetPasswordPage from './pages/ResetPasswordPage';
 import CertificateVerifyPage from './pages/CertificateVerifyPage';
+import MessagesPage from './pages/MessagesPage';
 
 // Pages - Student
 import StudentDashboard from './pages/student/StudentDashboard';
@@ -146,6 +147,16 @@ function App() {
               )}
             />
             <Route path="/payment/failed" element={<PaymentFailedPage /> } />
+
+            {/* Messages - accessible to all authenticated roles */}
+            <Route
+              path="/messages"
+              element={(
+                <ProtectedRoute>
+                  <MessagesPage />
+                </ProtectedRoute>
+              )}
+            />
 
             {/* Instructor Routes */}
             <Route
