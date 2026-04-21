@@ -59,6 +59,9 @@ app.use('/api/analytics',    require('./routes/analytics.routes'));
 app.use('/api/admin',        require('./routes/admin.routes'));
 app.use('/api/categories',   require('./routes/categories.routes'));
 app.use('/api/chatbot',      require('./routes/chatbot.routes'));
+app.use('/api/reviews',      require('./routes/review.routes'));
+app.use('/api/messages',     require('./routes/message.routes'));
+app.use('/api/live-classes', require('./routes/liveclass.routes'));
 
 // ── Health Check ───────────────────────────────────────────
 app.get('/health', (req, res) => {
