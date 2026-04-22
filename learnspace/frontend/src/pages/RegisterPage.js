@@ -26,19 +26,20 @@ const RegisterPage = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <div className="card-vintage rounded-lg shadow-vintage-lg border-2 border-forest-200 p-8">
           <div className="text-center mb-8">
-            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <span className="text-white font-bold">LS</span>
+            <img src="/logo.png" alt="LearnSpace" className="h-20 w-auto mx-auto mb-3 drop-shadow-md" />
+            <h1 className="font-display text-3xl font-bold text-forest-800 tracking-wide">Begin Your Journey</h1>
+            <p className="text-forest-600 text-base mt-1 italic font-sans">Join LearnSpace — free, forever</p>
+            <div className="vintage-divider mt-4 max-w-[200px] mx-auto">
+              <span className="text-forest-400 text-xs tracking-widest uppercase">Register</span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Create your account</h1>
-            <p className="text-gray-500 text-sm mt-1">Join LearnSpace today — it's free</p>
           </div>
 
-          <div className="flex bg-gray-100 rounded-xl p-1 mb-6">
+          <div className="flex bg-cream-100 border border-cream-300 rounded-md p-1 mb-6">
             {['student', 'instructor'].map(r => (
               <button key={r} type="button" onClick={() => setForm({ ...form, role: r })}
-                className={`flex-1 py-2 rounded-lg text-sm font-medium transition-all ${form.role === r ? 'bg-white shadow text-blue-600' : 'text-gray-500'}`}>
+                className={`flex-1 py-2 rounded-md text-sm font-ui font-semibold transition-all ${form.role === r ? 'bg-forest-700 shadow text-cream-50' : 'text-forest-600 hover:bg-cream-200'}`}>
                 {r === 'student' ? 'Student' : 'Instructor'}
               </button>
             ))}

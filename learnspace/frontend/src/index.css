@@ -1,73 +1,144 @@
-/* LearnSpace - Global Styles */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+/* LearnSpace - Vintage Deep Green Theme */
+
+/* Fonts: Playfair Display (headings), Cormorant Garamond (body), Inter (UI) */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
 
   html {
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Cormorant Garamond', Georgia, serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     margin: 0;
-    background-color: #f9fafb;
-    color: #111827;
+    color: #1a321c;
+    background-color: #fbf8f1;
+    background-image:
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.06'/%3E%3C/svg%3E"),
+      radial-gradient(ellipse at top, #f6efdf 0%, #fbf8f1 45%, #f0e8d5 100%);
+    background-attachment: fixed;
+    font-size: 17px;
+    line-height: 1.55;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
+  /* Headings use Playfair Display */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #1a321c;
+    letter-spacing: -0.01em;
   }
-  ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+
+  /* Buttons, nav, inputs use Inter (clean/legible) */
+  button, input, select, textarea, nav {
+    font-family: 'Inter', system-ui, sans-serif;
   }
+
+  /* Vintage scrollbar - forest green on cream */
+  ::-webkit-scrollbar { width: 10px; height: 10px; }
+  ::-webkit-scrollbar-track { background: #f6efdf; }
   ::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 3px;
+    background: #8fb394;
+    border-radius: 5px;
+    border: 2px solid #f6efdf;
   }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #94a3b8;
-  }
+  ::-webkit-scrollbar-thumb:hover { background: #4a7550; }
+
+  /* Text selection */
+  ::selection { background: #355a3b; color: #fbf8f1; }
+
+  a { color: #355a3b; }
+  a:hover { color: #1a321c; }
 }
 
 @layer utilities {
-  .line-clamp-1 {
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+  .line-clamp-1 { display: -webkit-box; -webkit-line-clamp: 1; -webkit-box-orient: vertical; overflow: hidden; }
+  .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+  /* Sparkling gradient text effect used on HomePage hero title */
+  .text-sparkle {
+    background: linear-gradient(
+      110deg,
+      #355a3b 0%,
+      #4a7550 25%,
+      #f2c252 50%,
+      #4a7550 75%,
+      #264426 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: sparkleText 4s linear infinite;
   }
-  .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+
+  @keyframes sparkleText {
+    0%   { background-position: 0% 50%; }
+    100% { background-position: 300% 50%; }
   }
-  .line-clamp-3 {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+
+  /* Decorative vintage divider */
+  .vintage-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: #4a7550;
+  }
+  .vintage-divider::before,
+  .vintage-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #8fb394, transparent);
+  }
+
+  /* Ornament — curly flourish for section dividers */
+  .ornament::before { content: '❦'; color: #4a7550; font-size: 1.5em; }
+
+  /* Soft floating sparkle elements */
+  .sparkle-dot {
+    position: absolute;
+    background: radial-gradient(circle, #f2c252 0%, #e9a928 40%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleDot 3s ease-in-out infinite;
+  }
+
+  @keyframes sparkleDot {
+    0%, 100% { opacity: 0; transform: scale(0.5); }
+    50%      { opacity: 0.9; transform: scale(1.2); }
+  }
+
+  /* Vintage card — aged paper feel */
+  .card-vintage {
+    background: rgba(251, 248, 241, 0.95);
+    border: 1px solid #dce7de;
+    box-shadow: 0 2px 8px rgba(38, 68, 38, 0.08), 0 1px 2px rgba(38, 68, 38, 0.12);
+    backdrop-filter: blur(8px);
   }
 }
 
 /* React Player */
-.react-player video {
-  outline: none;
-}
+.react-player video { outline: none; }
 
-/* Toastify overrides */
+/* Toastify — vintage styling */
 .Toastify__toast {
-  border-radius: 12px !important;
+  border-radius: 8px !important;
   font-family: 'Inter', sans-serif !important;
   font-size: 14px !important;
+  background: #fbf8f1 !important;
+  color: #1a321c !important;
+  border: 1px solid #dce7de !important;
+  box-shadow: 0 10px 30px rgba(38, 68, 38, 0.15) !important;
 }
+.Toastify__toast--success { border-left: 4px solid #4a7550 !important; }
+.Toastify__toast--error   { border-left: 4px solid #b91c1c !important; }
+.Toastify__toast--info    { border-left: 4px solid #cc8f17 !important; }
+.Toastify__progress-bar--success { background: #4a7550 !important; }

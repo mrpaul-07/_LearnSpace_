@@ -46,14 +46,15 @@ const LoginPage = () => {
   return (
     <div className="min-h-[calc(100vh-64px)] flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-md">
-        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <div className="card-vintage rounded-lg shadow-vintage-lg border-2 border-forest-200 p-8">
           {/* Header */}
           <div className="text-center mb-8">
-            <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-3">
-              <span className="text-white font-bold">LS</span>
+            <img src="/logo.png" alt="LearnSpace" className="h-20 w-auto mx-auto mb-3 drop-shadow-md" />
+            <h1 className="font-display text-3xl font-bold text-forest-800 tracking-wide">Welcome back</h1>
+            <p className="text-forest-600 text-base mt-1 italic font-sans">Sign in to continue your journey</p>
+            <div className="vintage-divider mt-4 max-w-[200px] mx-auto">
+              <span className="text-forest-400 text-xs tracking-widest uppercase">Enter</span>
             </div>
-            <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
-            <p className="text-gray-500 text-sm mt-1">Sign in to your LearnSpace account</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">

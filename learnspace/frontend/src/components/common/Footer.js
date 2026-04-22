@@ -1,29 +1,74 @@
 // ============================================================
-// LearnSpace - Footer Component
+// LearnSpace - Footer (Vintage Theme)
 // ============================================================
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Footer = () => (
-  <footer className="bg-gray-900 text-gray-400 py-8 mt-auto">
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-        <div className="flex items-center gap-2">
-          <div className="w-6 h-6 bg-blue-600 rounded-md flex items-center justify-center">
-            <span className="text-white font-bold text-xs">LS</span>
+const Footer = () => {
+  const year = new Date().getFullYear();
+
+  return (
+    <footer className="bg-forest-gradient text-cream-100 mt-16 border-t-2 border-amber-400/30 relative">
+      <div className="absolute inset-0 bg-paper opacity-20 pointer-events-none"></div>
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <div className="flex items-center gap-3 mb-4">
+              <img src="/logo.png" alt="LearnSpace" className="h-14 w-auto drop-shadow-md" />
+              <div>
+                <p className="font-display text-2xl font-bold text-cream-50 tracking-wider">
+                  LearnSpace
+                </p>
+                <p className="text-xs text-amber-300 italic tracking-widest uppercase">
+                  E-Learning Platform
+                </p>
+              </div>
+            </div>
+            <p className="text-cream-200 font-sans italic leading-relaxed max-w-md">
+              An open-source learning marketplace. Verified instructors, real certificates,
+              Bangla + English support. Study at your own pace, from anywhere.
+            </p>
           </div>
-          <span className="text-white font-semibold text-sm">LearnSpace</span>
+
+          {/* Explore */}
+          <div>
+            <h4 className="font-display text-lg font-bold text-amber-300 mb-4 tracking-wider">
+              Explore
+            </h4>
+            <ul className="space-y-2 font-sans">
+              <li><Link to="/courses" className="text-cream-200 hover:text-amber-300 transition-colors">Browse Courses</Link></li>
+              <li><Link to="/register" className="text-cream-200 hover:text-amber-300 transition-colors">Become an Instructor</Link></li>
+              <li><Link to="/login" className="text-cream-200 hover:text-amber-300 transition-colors">Log In</Link></li>
+            </ul>
+          </div>
+
+          {/* Company */}
+          <div>
+            <h4 className="font-display text-lg font-bold text-amber-300 mb-4 tracking-wider">
+              About
+            </h4>
+            <ul className="space-y-2 font-sans">
+              <li><span className="text-cream-200">Built with MERN stack</span></li>
+              <li><span className="text-cream-200">CSE412 Academic Project</span></li>
+              <li><span className="text-cream-200">East West University</span></li>
+            </ul>
+          </div>
         </div>
-        <div className="flex items-center gap-6 text-xs">
-          <Link to="/courses" className="hover:text-white transition-colors">Browse Courses</Link>
-          <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-white transition-colors">Terms of Use</a>
-          <Link to="/verify-certificate/check" className="hover:text-white transition-colors">Verify Certificate</Link>
+
+        <div className="vintage-divider mt-10 mb-5">
+          <span className="text-amber-300/70 text-xs tracking-widest uppercase">Scientia Est Potentia</span>
         </div>
-        <p className="text-xs text-gray-600">© {new Date().getFullYear()} LearnSpace. Made with ❤️ in Bangladesh.</p>
+
+        <div className="flex flex-col md:flex-row items-center justify-between text-sm text-cream-300 font-sans">
+          <p>&copy; {year} LearnSpace. All rights reserved.</p>
+          <p className="italic mt-2 md:mt-0">Crafted with care for learners everywhere.</p>
+        </div>
       </div>
-    </div>
-  </footer>
-);
+    </footer>
+  );
+};
 
 export default Footer;
