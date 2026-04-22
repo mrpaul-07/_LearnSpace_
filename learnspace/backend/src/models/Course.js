@@ -16,7 +16,7 @@ const courseSchema = new mongoose.Schema({
   is_free:            { type: Boolean, default: false },
   status:             { type: String, enum: ['draft', 'pending_review', 'published', 'rejected', 'archived'], default: 'draft' },
   rejection_reason:   { type: String, default: null },
-  level:              { type: String, enum: ['beginner', 'intermediate', 'advanced'], default: 'beginner' },
+  level:              { type: String, enum: ['beginner', 'intermediate', 'advanced', 'all levels', 'all_levels'], default: 'beginner' },
   language:           { type: String, enum: ['en', 'bn', 'both'], default: 'en' },
   total_lessons:      { type: Number, default: 0 },
   total_enrollments:  { type: Number, default: 0 },
