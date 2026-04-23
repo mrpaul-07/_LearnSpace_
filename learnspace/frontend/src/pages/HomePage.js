@@ -90,7 +90,7 @@ const HomePage = () => {
 
             {/* Latin-style tagline */}
             <div className="vintage-divider mb-6 w-full max-w-md">
-              <span className="text-amber-300 text-lg italic font-display">Learn Earn Grow</span>
+              <span className="text-amber-300 text-lg italic font-display">Learn, Earn & Grow</span>
             </div>
 
             <p className="text-cream-100 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-sans italic mb-8">
